@@ -33,13 +33,13 @@ const Login = () => {
                 <h3>Log in to your account</h3>
                 {!isValidLogin && <span className='text-danger'>Invalid username/password. Please try again.</span>}
                 <form onSubmit={onFormSubmit}>
-                    <input onChange={onTextChange} value={formData.email} type="text" name="email" placeholder="Email" className="form-control"  />
+                    <input onChange={onTextChange} value={formData.email} type="text" name="email" placeholder="Email" className="form-control" />
                     <br />
-                    <input onChange={onTextChange} value={formData.password} type="password" name="password" placeholder="Password" className="form-control"  />
+                    <input onChange={onTextChange} value={formData.password} type="password" name="password" placeholder="Password" className="form-control" />
                     <br />
-                    <button className="btn btn-primary">Login</button>
+                    <button className="btn btn-primary" style={{ marginBottom: '15px' }}>Login</button>
                 </form>
-                <Link to='/Signup' className="nav-link">
+                <Link to='/Signup' >
                     Sign up for a new account
                 </Link>
             </div>
