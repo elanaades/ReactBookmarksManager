@@ -46,10 +46,12 @@ const MyBookmarks = () => {
         onCancelClick(bookmarkId);
     }
 
-    const onDeleteClick = async (bookmarkId) => {
-        await axios.post('/api/bookmarks/deletebookmark', { id: bookmarkId });
+    const onDeleteClick = async (id) => {
+        console.log(id);
+
+        await axios.post('/api/bookmarks/deletebookmark', { id: id });
         const nextState = produce(bookmarks, draft => {
-            return draft.filter(item => item.id !== bookmarkId);;
+            return draft.filter(item => item.id !== id);;
         });
         setBookmarks(nextState);
     }

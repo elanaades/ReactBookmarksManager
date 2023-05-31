@@ -38,12 +38,8 @@ namespace ReactBookmarksManager.Data
         public void DeleteBookmark(int bookmarkId)
         {
             using var context = new BookmarksManagerDataContext(_connectionString);
-            var bookmark = context.Bookmarks.FirstOrDefault(b => b.Id == bookmarkId);
-            if (bookmark != null)
-            {
-                context.Bookmarks.Remove(bookmark);
-                context.SaveChanges();
-            }
+            context.Database.ExecuteSqlInterpolated($"DELETE FROM Bookmarks WHERE Id = {bookmarkId}");
+
         }
 
         public List<object> GetTopBookmarks()

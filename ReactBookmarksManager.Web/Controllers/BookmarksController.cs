@@ -63,10 +63,10 @@ namespace ReactBookmarksManager.Web.Controllers
         [Authorize]
         [HttpPost]
         [Route("deletebookmark")]
-        public void DeleteBookmark(int id)
+        public void DeleteBookmark(DeleteBookmarkViewModel vm)
         {
             var repo = new BookmarksRepository(_connectionString);
-            repo.DeleteBookmark(id);
+            repo.DeleteBookmark(vm.Id);
         }
 
         [Authorize]
